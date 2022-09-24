@@ -1,4 +1,5 @@
 import 'package:bounty/Extra_Pages/Deposit.dart';
+import 'package:bounty/Extra_Pages/Withdraw.dart';
 import 'package:bounty/Pages/prizes.dart';
 import 'package:bounty/backend_services/backend_services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -29,65 +30,99 @@ class _homeState extends State<home> {
             return SafeArea(
               child: GestureDetector(
                 onTap: () => FocusScope.of(context).unfocus(),
-                child: ListView.builder(
-                  itemCount: snapshot.data!.size,
-                  itemBuilder: (context, index) => Column(
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Your Savings',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
-                          ),
-                          Text(
-                            snapshot.data!.docs[index]
-                                .data()['wallet_amount']
-                                .toString(),
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const deposit()),
-                                    );
-                                  },
-                                  child: Text('Deposit')),
-                              ElevatedButton(
-                                  onPressed: () {}, child: Text('Withdraw'))
-                            ],
-                          ),
-                        ],
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Your Points',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
-                          ),
-                          Text(
-                            snapshot.data!.docs[index]
-                                .data()['points']
-                                .toString(),
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
-                          ),
-                        ],
-                      ),
-                    ],
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: ListView.builder(
+                    itemCount: snapshot.data!.size,
+                    itemBuilder: (context, index) => Column(
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Your Savings',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
+                            ),
+                            Text(
+                              '${snapshot.data!.docs[index].data()['wallet_amount'].toString()} KD',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
+                            ),
+                            Container(
+                              height: 20,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => deposit(
+                                                  id: snapshot.data!.docs[index]
+                                                      .data()['id'],
+                                                  name: snapshot
+                                                      .data!.docs[index]
+                                                      .data()['name'],
+                                                  wallet_amount: snapshot
+                                                      .data!.docs[index]
+                                                      .data()['wallet_amount'],
+                                                  points: snapshot
+                                                      .data!.docs[index]
+                                                      .data()['points'],
+                                                )),
+                                      );
+                                    },
+                                    child: Text('Deposit')),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => withdraw(
+                                                  id: snapshot.data!.docs[index]
+                                                      .data()['id'],
+                                                  name: snapshot
+                                                      .data!.docs[index]
+                                                      .data()['name'],
+                                                  wallet_amount: snapshot
+                                                      .data!.docs[index]
+                                                      .data()['wallet_amount'],
+                                                  points: snapshot
+                                                      .data!.docs[index]
+                                                      .data()['points'],
+                                                )),
+                                      );
+                                    }, child: Text('Withdraw'))
+                              ],
+                            ),
+                            Container(
+                              height: 20,
+                            ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Your Points',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
+                            ),
+                            Text(
+                              '${snapshot.data!.docs[index].data()['points'].toString()} points',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

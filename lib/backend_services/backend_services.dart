@@ -69,13 +69,13 @@ class backend_services {
   // deposit
   Future deposit(String id, String name, double wallet_amount, int points,
       double add_ammount) async {
-    final new_goal = FirebaseFirestore.instance.collection('users').doc();
+    final new_goal = FirebaseFirestore.instance.collection('users').doc('2Ai3frjBnb0FF3Pr4yUm');
 
     final u = firebase_user(
         id: id,
         name: name,
         wallet_amount: (wallet_amount + add_ammount),
-        points: points);
+        points: points+15);
 
     final json = u.toJson();
 
@@ -85,7 +85,7 @@ class backend_services {
   // withdraw
   Future withdraw(String id, String name, double wallet_amount, int points,
       double remove_ammount) async {
-    final new_goal = FirebaseFirestore.instance.collection('users').doc();
+    final new_goal = FirebaseFirestore.instance.collection('users').doc('2Ai3frjBnb0FF3Pr4yUm');
 
     var new_amount = wallet_amount;
 
@@ -97,10 +97,17 @@ class backend_services {
         id: id,
         name: name,
         wallet_amount: new_amount,
-        points: points);
+        points: points-50);
 
     final json = u.toJson();
 
     await new_goal.set(json);
+  }
+
+  Future redeem_points(String id, int points) async {
+    FirebaseFirestore.instance
+        .collection('2Ai3frjBnb0FF3Pr4yUm')
+        .where('id', isEqualTo: 'uK99XDwjppiavwwVOFho')
+        .snapshots();
   }
 }
