@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "852533225920",
+    "project_id": "bounty-c4556",
+    "storage_bucket": "bounty-c4556.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852533225920:android:453ce34c8795943e418025",
+        "android_client_info": {
+          "package_name": "com.example.bounty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852533225920-0v5e9ttvcn9urs888834141utd909j8u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw2_1E_-vp4IqTTvhzJz5gGfUU6cjqLE8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "852533225920-0v5e9ttvcn9urs888834141utd909j8u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
