@@ -1,10 +1,10 @@
-class user {
+class firebase_user {
   String id;
   String name;
   double wallet_amount;
   int points;
 
-  user(
+  firebase_user(
       {required this.id,
       required this.name,
       required this.wallet_amount,
@@ -17,7 +17,7 @@ class user {
         'points': points
       };
 
-  static user fromJson(Map<String, dynamic> json) => user(
+  static firebase_user fromJson(Map<String, dynamic> json) => firebase_user(
       id: json['id'],
       name: json['name'],
       wallet_amount: json['wallet_amount'],
