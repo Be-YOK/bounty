@@ -14,6 +14,7 @@ class _addGoalsState extends State<addGoals> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text('Add Goals'),
       ),
     );
