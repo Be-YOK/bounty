@@ -12,6 +12,8 @@ class prizes extends StatefulWidget {
 class _prizesState extends State<prizes> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Column(),
+    );
   }
 }
