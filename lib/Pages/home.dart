@@ -40,15 +40,16 @@ class _homeState extends State<home> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
+                            Image.asset('assets/bounty_logo.png', height: 100,),
                             Text(
                               'Your Savings',
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
+                                  fontWeight: FontWeight.bold, fontSize: 20, color: Colors.blue),
                             ),
                             Text(
                               '${snapshot.data!.docs[index].data()['wallet_amount'].toString()} KD',
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
+                                  fontWeight: FontWeight.bold, fontSize: 25),
                             ),
                             Container(
                               height: 20,
@@ -112,12 +113,12 @@ class _homeState extends State<home> {
                             Text(
                               'Your Points',
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
+                                  fontWeight: FontWeight.bold, fontSize: 20, color: Colors.blue),
                             ),
                             Text(
                               '${snapshot.data!.docs[index].data()['points'].toString()} points',
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
+                                  fontWeight: FontWeight.bold, fontSize: 25),
                             ),
                           ],
                         ),

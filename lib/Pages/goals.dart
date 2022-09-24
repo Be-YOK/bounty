@@ -28,48 +28,52 @@ class _goalsState extends State<goals> {
             return SafeArea(
               child: GestureDetector(
                 onTap: () => FocusScope.of(context).unfocus(),
-                child: ListView.builder(
-                  itemCount: snapshot.data!.size,
-                  itemBuilder: (context, index) => Column(
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Goal Name: ',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ListView.builder(
+                    itemCount: snapshot.data!.size,
+                    itemBuilder: (context, index) => Column(
+                      children: [
+                        Column(
+
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+
+                                children: [
+                                  Container(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      'Goal Name: ',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold, fontSize: 20, color: Colors.blue),
+                                    ),
+                                  ),
+                                  Text(
+                                    'child university savings',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold, fontSize: 20),
+                                  ),
+                                ],
                               ),
-                              Text(
-                                'child university savings',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
-                              ),
-                            ],
-                          ),
-                          Text(
-                            "Active: " +
-                                snapshot.data!.docs[index]
-                                    .data()['is_active']
-                                    .toString(),
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
-                          ),
-                        ],
-                      ),
-                      Divider(),
-                      ElevatedButton(
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => addGoals()));
-                          },
-                          child: Text('Add Goal'))
-                    ],
+                            ),
+                            Text(
+                              'Current',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15, color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                        Divider(),
+                        ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => addGoals()));
+                            },
+                            child: Text('Add Goal'))
+                      ],
+                    ),
                   ),
                 ),
               ),
