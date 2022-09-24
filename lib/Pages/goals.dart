@@ -41,12 +41,12 @@ class _goalsState extends State<goals> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
-                                'Goal: ',
+                                'Goal Name: ',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 20),
                               ),
                               Text(
-                                snapshot.data!.docs[index].data()['id'],
+                                'child university savings',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 20),
                               ),
