@@ -81,4 +81,26 @@ class backend_services {
 
     await new_goal.set(json);
   }
+
+  // withdraw
+  Future withdraw(String id, String name, double wallet_amount, int points,
+      double remove_ammount) async {
+    final new_goal = FirebaseFirestore.instance.collection('users').doc();
+
+    var new_amount = wallet_amount;
+
+    if(wallet_amount - remove_ammount > 0) {
+      new_amount = wallet_amount - remove_ammount;
+    }
+
+    final u = firebase_user(
+        id: id,
+        name: name,
+        wallet_amount: new_amount,
+        points: points);
+
+    final json = u.toJson();
+
+    await new_goal.set(json);
+  }
 }
