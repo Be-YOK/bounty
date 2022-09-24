@@ -17,6 +17,96 @@ class _addGoalsState extends State<addGoals> {
         centerTitle: true,
         title: Text('Add Goals'),
       ),
+      body: SafeArea(
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Enter Goal Name',
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      border: Border.all()),
+                  child: TextFormField(
+                      onChanged: (value) {},
+                      decoration:
+                          const InputDecoration(border: InputBorder.none)),
+                ),
+                Container(height: 10),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Enter amount',
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      border: Border.all()),
+                  child: TextFormField(
+                      onChanged: (value) {},
+                      decoration:
+                          const InputDecoration(border: InputBorder.none)),
+                ),
+                Container(height: 10),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Enter Time',
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      border: Border.all()),
+                  child: TextFormField(
+                      onChanged: (value) {},
+                      decoration:
+                          const InputDecoration(border: InputBorder.none)),
+                ),
+                Container(height: 10),
+                ElevatedButton(onPressed: () {}, child: Text('Save'))
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
+
+
+// Container(
+//                                 decoration: BoxDecoration(
+//                                     borderRadius: BorderRadius.circular(8.0),
+//                                     border: Border.all()),
+//                                 child: TextFormField(
+//                                     onChanged: (value) {
+//                                       data[index] = value;
+//                                     },
+//                                     decoration: const InputDecoration(
+//                                         border: InputBorder.none)),
+//                               ),
+//                               Container(height: 10)
+//                             ],
